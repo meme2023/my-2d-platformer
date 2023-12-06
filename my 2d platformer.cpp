@@ -50,7 +50,7 @@ int WinMain()
 	
 	const int size = 2;
 	// creating a ground obj
-	ground flo[size] = { ground({0,320},{0,320,32 * 10,32 },RED),ground({300,300},{300,300,32 * 10,32 },RED) };
+	ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({300,250},{300,250,32 * 10,32 },RED) };
 	int map[row][col];
 	shader post;
 
@@ -113,7 +113,7 @@ int WinMain()
 				for (int y = 0; y < col; y++) {
 					map[x][y];
 
-					DrawRectangleLines(x * 32, y * 32, 32, 32, WHITE);
+					DrawRectangleLines(x * 32, y * 32, 32*20, 32, WHITE);
 					//draw the player
 					pla.draw();
 					pla.playerfailg();
