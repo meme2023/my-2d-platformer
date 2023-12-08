@@ -4,27 +4,29 @@
 void player::undo_movement(Rectangle obj1, Rectangle ob2)
 {
 	if (CheckCollisionRecs(obj1, ob2)) {
-
 		playerpos = playerposlastframe;
 		velocity = 0;
 		coll = true;
-
+		isair = false;
 	}
 
 	else
 	{
-		
 		coll = false;
+		
 	}
 }
 
 void player::tick(float getframe)
 {
-
-
-	Vector2 dirction{};
 	//undo movement
 	playerposlastframe = playerpos;
+
+	Vector2 dirction{};
+	//update the velo
+
+	playerpos.y += velocity * getframe;
+
 
 	//move the player
 	if (IsKeyDown(KEY_A)) {
@@ -33,23 +35,22 @@ void player::tick(float getframe)
 	if (IsKeyDown(KEY_D)) { dirction.x += 1.f; }
 
 	if (IsKeyPressed(KEY_SPACE) && isair == false) {
-
+		
 		velocity += jampvel;
-	
+		
 
 	}
-	//update the velo
 	
-	playerpos.y += velocity * getframe;
-
 	// collution true is in the ground else cout to fall
-	if (coll) {
-		velocity = 0;
-		isair = false;
+	if (coll ) {
+		
 
+		isair = false;
+		
 	}
 	else
 	{
+		
 		velocity += gravry * getframe;
 		isair = true;
 		
@@ -87,7 +88,7 @@ float player::getplayerposY()
 
 Rectangle player::getcollustion()
 {
-	DrawRectangleRec(colliustion, WHITE);
+
 	// creating te coll
 	return colliustion = { playerpos.x,playerpos.y,rce.width,rce.height };
 }

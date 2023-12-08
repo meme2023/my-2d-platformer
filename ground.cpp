@@ -28,7 +28,7 @@ float ground::getfloorposY()
 Rectangle ground::getcolustion()
 
 {
-	
+	DrawRectangleRec(coll, YELLOW);
 	
 	return coll = {floor.x,floor.y,floor.width,floor.height};
 }

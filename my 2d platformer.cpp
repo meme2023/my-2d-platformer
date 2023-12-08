@@ -48,9 +48,12 @@ int WinMain()
 	// helps with loding screen
 	int framerate = 0;
 	
-	const int size = 2;
+	const int size = 3;
 	// creating a ground obj
-	ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({300,250},{300,250,32 * 10,32 },RED) };
+
+
+		ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({300,250},{300,250,32 * 10,32 },RED),ground({450,250},{450,250,32 * 10,32 },RED) };
+	
 	int map[row][col];
 	shader post;
 
@@ -82,12 +85,15 @@ int WinMain()
 			DrawText("Main Screen", 0, 0, 100, RED);
 			for (int i = 0; i < size; i++) {
 				pla.tick(GetFrameTime());
-				pla.undo_movement(flo[i].getcolustion(), pla.getcollustion());
+				pla.undo_movement(flo[0].getcolustion(), pla.getcollustion());
+				pla.undo_movement(flo[1].getcolustion(), pla.getcollustion());
+				pla.undo_movement(flo[2].getcolustion(), pla.getcollustion());
 				if (pla.getplayerhelth() <= 0) {
 
 					current = death;
 				}
 			}
+		
 				break;
 			
 		case loding_screen:
