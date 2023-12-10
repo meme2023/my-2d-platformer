@@ -25,7 +25,6 @@ private:
 	float speed = 4.f;
 	Vector2 playerpos{};
 	Vector2 playerposlastframe{};
-	Rectangle rce{ playerpos.x,playerpos.y,rce.width = 32  ,rce.height = 32 };
 	const int gravry = 900;
 	int jampvel = -400;
 	Rectangle colliustion{};
@@ -37,8 +36,14 @@ private:
 	camera.offset = {playerpos.x, playerpos.y },
 	camera.rotation = 0.0f,
 	camera.zoom = 1.0f };
-
 	int  maxhp = 10;
 	int currenthp = 1;
-
+	Texture2D idle_player = LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\Idle.png");
+	float updating_time{ 1.f/16.f };
+	float running_time{};
+	int frame{};
+	int maxframe{4};
+	int width{};
+	int height{};
+	float scale = 1.5f;
 };

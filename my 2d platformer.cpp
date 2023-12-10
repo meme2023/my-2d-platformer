@@ -26,13 +26,9 @@ int WinMain()
 	int gameScreenHeight = 360;
 	// cratinag render texture 
 	RenderTexture2D target = LoadRenderTexture(gameScreenWidth, gameScreenHeight);
-
-
 	SetTextureFilter(target.texture, TEXTURE_FILTER_BILINEAR);
 	const int row = 50;
 	const int col = 50;
-
-	
 	player pla(32, 32 + 250);
 	// the difrent screen 
 	enum screens
@@ -50,8 +46,6 @@ int WinMain()
 	
 	const int size = 3;
 	// creating a ground obj
-
-
 		ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({300,250},{300,250,32 * 10,32 },RED),ground({450,250},{450,250,32 * 10,32 },RED) };
 	
 	int map[row][col];

@@ -1,6 +1,16 @@
 #include"player.h"
 #include"shader.h"
 
+player::player(int wid, int hight)
+{
+	width = static_cast<float>(idle_player.width);
+	height = static_cast<float>(idle_player.height)/maxframe;
+
+	playerpos = {
+		  (float)wid / 2.0f - scale * (0.5f * width) ,
+		(float)hight / 2.0f - scale * (0.5f * height) };
+
+}
 void player::undo_movement(Rectangle obj1, Rectangle ob2)
 {
 	if (CheckCollisionRecs(obj1, ob2)) {
@@ -43,17 +53,14 @@ void player::tick(float getframe)
 	
 	// collution true is in the ground else cout to fall
 	if (coll ) {
-		
-
-		isair = false;
+		velocity = 0;
 		
 	}
 	else
 	{
-		
 		velocity += gravry * getframe;
 		isair = true;
-		
+		coll = false;
 	}
 
 	if (Vector2Length(dirction) != 0.0) {
@@ -64,15 +71,26 @@ void player::tick(float getframe)
 
 	// follow the player
 	camera.target = { playerpos.x - 20.0f,  playerpos.y - 280.0f };
-	
+	//updte ainmaton 
+	running_time += getframe;
+	if (running_time >= updating_time) {
+		frame++;
+		running_time = 0.f;
+		if (frame > maxframe) {
+			frame = 0;
+		}
+	}
 }
 
 void player::draw()
 
 {
-	rce = { playerpos.x,playerpos.y,rce.width ,rce.height };
+	
+	
+	Rectangle rce{ playerpos.x,playerpos.y,scale*(float)width ,scale*(float)height };
+	Rectangle scorce = { 0.f,frame*(float)height ,(float)width,(float)height };
 	// draw rhe player
-	DrawRectangleRec(rce, BLACK);
+	DrawTexturePro(idle_player, scorce, rce, Vector2{ 0.f,0.f }, 0.f, WHITE);
 
 }
 
@@ -90,16 +108,9 @@ Rectangle player::getcollustion()
 {
 
 	// creating te coll
-	return colliustion = { playerpos.x,playerpos.y,rce.width,rce.height };
+	return colliustion = { playerpos.x,playerpos.y,(float)width*scale,(float)height*scale};
 }
 
-player::player(int wid, int hight)
-{
-
-	playerpos = {
-		 (float)wid,(float)hight };
-
-}
 
 Camera2D player::getcamra()
 {

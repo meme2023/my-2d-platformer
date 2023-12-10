@@ -1,4 +1,6 @@
 ﻿  player.cpp
+C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(6,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(7,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Generating code
   2 of 19 functions (10.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
