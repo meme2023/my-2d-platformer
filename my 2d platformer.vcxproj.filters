@@ -52,5 +52,8 @@
     <Image Include="Walking.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="jumping.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -78,7 +78,7 @@ int WinMain()
 		case main_screen:
 			DrawText("Main Screen", 0, 0, 100, RED);
 			
-			for(auto b:flo){
+			for(int i = 0; i < size; i++){
 			
 				pla.tick(GetFrameTime());
 				pla.undo_movement(flo[0].getcolustion(), pla.getcollustion());

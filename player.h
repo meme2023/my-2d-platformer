@@ -41,6 +41,7 @@ private:
 	Texture2D player1 = LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\Idle.png");
 	Texture2D idle_player= LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\Idle.png");
 	Texture2D walk_player = LoadTexture("C:/Users/memeo/Desktop/c++/my 2d platformer/Walking.png");
+	Texture2D jump_player = LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\jumping.png");
 	float updating_time{ 5.f/16.f };
 	float running_time{};
 	int frame{};

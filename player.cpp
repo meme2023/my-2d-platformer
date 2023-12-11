@@ -41,7 +41,6 @@ void player::tick(float getframe)
 	if (IsKeyDown(KEY_D)) { dirction.x += 1.f; }
 
 	if (IsKeyPressed(KEY_SPACE) && isair == false) {
-		
 		velocity += jampvel;
 		
 
@@ -50,7 +49,6 @@ void player::tick(float getframe)
 	//updte ainmaton 
 	running_time += getframe;
 	//update the velo
-
 	playerpos.y += velocity * getframe;
 	// collution true is in the ground else cout to fall
 	
@@ -59,11 +57,20 @@ void player::tick(float getframe)
 		isair = true;
 	
 	
-	if (Vector2Length(dirction) != 0.0) {
-		playerpos = Vector2Add(playerpos, Vector2Scale(Vector2Normalize(dirction), speed));
-		dirction.x < 0.f ? rightleft = -1.f : rightleft = 1.f;
-		player1 = walk_player;
-	}
+		if (Vector2Length(dirction) != 0.0) {
+			playerpos = Vector2Add(playerpos, Vector2Scale(Vector2Normalize(dirction), speed));
+			dirction.x < 0.f ? rightleft = -1.f : rightleft = 1.f;
+			player1 = walk_player;
+
+		 if (velocity <= 0.0 && isair == true)
+		{
+			player1 = jump_player;
+		}
+		 
+		}
+		else if (velocity <= 0.0 && isair == true) {
+			player1 = jump_player;
+		}
 	else {
 		player1 = idle_player;
 	}
