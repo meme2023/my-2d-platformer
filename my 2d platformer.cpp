@@ -8,7 +8,7 @@
 #define MIN(a, b) ((a)<(b)? (a) : (b))
 
 int WinMain()
-{
+ {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	// creating the window size
 	const int win_width = 1270;
@@ -27,9 +27,9 @@ int WinMain()
 	// cratinag render texture 
 	RenderTexture2D target = LoadRenderTexture(gameScreenWidth, gameScreenHeight);
 	SetTextureFilter(target.texture, TEXTURE_FILTER_BILINEAR);
-	const int row = 50;
-	const int col = 50;
-	player pla(32, 32 + 250);
+	const int row{ 50 };
+	const int col{ 50 };
+	player pla(32, 32 + 254);
 	// the difrent screen 
 	enum screens
 	{
@@ -44,9 +44,9 @@ int WinMain()
 	// helps with loding screen
 	int framerate = 0;
 	
-	const int size = 3;
+	const int size = 2;
 	// creating a ground obj
-		ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({300,250},{300,250,32 * 10,32 },RED),ground({450,250},{450,250,32 * 10,32 },RED) };
+		ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({100,250},{100,250,32 * 40,32 },RED) };
 	
 	int map[row][col];
 	shader post;
@@ -77,11 +77,12 @@ int WinMain()
 			break;
 		case main_screen:
 			DrawText("Main Screen", 0, 0, 100, RED);
-			for (int i = 0; i < size; i++) {
+			
+			for(auto b:flo){
+			
 				pla.tick(GetFrameTime());
 				pla.undo_movement(flo[0].getcolustion(), pla.getcollustion());
 				pla.undo_movement(flo[1].getcolustion(), pla.getcollustion());
-				pla.undo_movement(flo[2].getcolustion(), pla.getcollustion());
 				if (pla.getplayerhelth() <= 0) {
 
 					current = death;
@@ -94,7 +95,7 @@ int WinMain()
 			break;
 		case death:
 			DrawText("you died", 110, 50, 100, BLUE);
-			DrawText("Press R to rest", 110, 150, 50, DARKBLUE);
+			DrawText("Press R to rest", pla.getplayerposX(), pla.getplayerposY(), 50, DARKBLUE);
 			if (IsKeyPressed(KEY_R)) {
 				current = main_screen;
 			}
@@ -157,5 +158,6 @@ int WinMain()
 
 	CloseWindow();
 	UnloadRenderTexture(target);
+	pla.unloadrexture();
 }
 

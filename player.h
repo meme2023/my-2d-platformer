@@ -20,13 +20,13 @@ public:
 	void playerdeath();
 	int getplayerhelth();
 	player();
-
+	void unloadrexture();
 private:
-	float speed = 4.f;
+	float speed{ 4.f };
 	Vector2 playerpos{};
 	Vector2 playerposlastframe{};
-	const int gravry = 900;
-	int jampvel = -400;
+	const int gravry = {900};
+	int jampvel{ -400 };
 	Rectangle colliustion{};
 	bool isair = {};
 	float velocity = 0;
@@ -38,12 +38,15 @@ private:
 	camera.zoom = 1.0f };
 	int  maxhp = 10;
 	int currenthp = 1;
-	Texture2D idle_player = LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\Idle.png");
-	float updating_time{ 1.f/16.f };
+	Texture2D player1 = LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\Idle.png");
+	Texture2D idle_player= LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\Idle.png");
+	Texture2D walk_player = LoadTexture("C:/Users/memeo/Desktop/c++/my 2d platformer/Walking.png");
+	float updating_time{ 5.f/16.f };
 	float running_time{};
 	int frame{};
 	int maxframe{4};
 	int width{};
 	int height{};
-	float scale = 1.5f;
+	float scale{ 1.5f };
+	float rightleft{ 1.f };
 };
