@@ -7,8 +7,8 @@ player::player(int wid, int hight)
 	height = static_cast<float>(player1.height) / maxframe;
 
 	playerpos = {
-		  (float)wid / 10.f+ scale * (0.6f * width) ,
-		(float)hight / 10.f+ scale * (0.6f * height) };
+		  (float)wid / 2.f+ scale * (0.5f * width) ,
+		(float)hight / 2.f+ scale * (0.5f * height) };
 
 }
 void player::undo_movement(Rectangle obj1, Rectangle ob2)
@@ -76,8 +76,7 @@ void player::tick(float getframe)
 	}
 
 	// follow the player
-	camera.target = { playerpos.x - 20.0f,  playerpos.y - 280.0f };
-
+	camera.target = { playerpos.x-640/2,   playerpos.y- 360/2 };
 	
 	if (running_time >= updating_time) {
 		frame++;
@@ -125,10 +124,10 @@ Camera2D player::getcamra()
 }
 int player::playerfailg()
 {
-
+	Vector2 currrnt{-playerpos.x,-playerpos.y};
 	if (playerpos.y > 1500) {
 		maxhp = maxhp - currenthp;
-		playerpos={ 0.f,0.f};
+		playerpos= currrnt;
 		return maxhp;
 	}
 	if (IsKeyPressed(KEY_R)) {

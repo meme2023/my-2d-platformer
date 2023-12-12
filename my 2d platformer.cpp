@@ -29,7 +29,7 @@ int WinMain()
 	SetTextureFilter(target.texture, TEXTURE_FILTER_BILINEAR);
 	const int row{ 50 };
 	const int col{ 50 };
-	player pla(32, 32 + 254);
+	player pla(gameScreenWidth/2,gameScreenHeight/2);
 	// the difrent screen 
 	enum screens
 	{
@@ -88,14 +88,12 @@ int WinMain()
 					current = death;
 				}
 			}
-		
 				break;
-			
 		case loding_screen:
 			break;
 		case death:
-			DrawText("you died", 110, 50, 100, BLUE);
-			DrawText("Press R to rest", pla.getplayerposX(), pla.getplayerposY(), 50, DARKBLUE);
+			DrawText("you died", pla.getplayerposX()-200, pla.getplayerposY()-100, 100, BLUE);
+			DrawText("Press R to rest", pla.getplayerposX()-200, pla.getplayerposY()+50, 50, DARKBLUE);
 			if (IsKeyPressed(KEY_R)) {
 				current = main_screen;
 			}

@@ -32,7 +32,7 @@ private:
 	float velocity = 0;
 	bool coll = {};
 	Vector2 dirction{};
-	Camera2D camera = { camera.target = {  playerpos.x - 20.0f, playerpos.y - 280.0f },
+	Camera2D camera = { camera.target = {  playerpos.x - 200.0f, playerpos.y - 200.0f },
 	camera.offset = {playerpos.x, playerpos.y },
 	camera.rotation = 0.0f,
 	camera.zoom = 1.0f };
