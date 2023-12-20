@@ -46,7 +46,7 @@ int WinMain()
 	
 	const int size = 2;
 	// creating a ground obj
-		ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({100,250},{100,250,32 * 40,32 },RED) };
+		ground flo[size] = { ground({0,320},{0,320,32 * 40,32 },RED),ground({0,250},{0,250,32 * 40,32 },RED) };
 	
 	int map[row][col];
 	shader post;

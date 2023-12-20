@@ -50,4 +50,6 @@ private:
 	int height{};
 	float scale{ 1.5f };
 	float rightleft{ 1.f };
+	Rectangle hpbar{};
+	
 };

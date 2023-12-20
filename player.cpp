@@ -7,8 +7,8 @@ player::player(int wid, int hight)
 	height = static_cast<float>(player1.height) / maxframe;
 
 	playerpos = {
-		  (float)wid / 2.f+ scale * (0.5f * width) ,
-		(float)hight / 2.f+ scale * (0.5f * height) };
+		  (float)wid / 2.f-scale * (0.5f * width) ,
+		(float)hight / 2.f- scale * (0.5f * height) };
 
 }
 void player::undo_movement(Rectangle obj1, Rectangle ob2)
@@ -91,7 +91,7 @@ void player::draw()
 
 {
 	
-	
+	DrawRectangleRec(hpbar = { playerpos.x,playerpos.y - 20,(float)maxhp * 6,16 }, GREEN);
 	Rectangle rce{ playerpos.x,playerpos.y,scale*(float)width ,scale*(float)height };
 	Rectangle scorce = { 0.f,frame*(float)height ,rightleft*(float)width,(float)height };
 	// draw rhe player
@@ -124,12 +124,15 @@ Camera2D player::getcamra()
 }
 int player::playerfailg()
 {
-	Vector2 currrnt{-playerpos.x,-playerpos.y};
-	if (playerpos.y > 1500) {
+
+	
+
+	if (playerpos.y >=1500&&isair==true) {
 		maxhp = maxhp - currenthp;
-		playerpos= currrnt;
+		playerpos = {10.f,10.f };
 		return maxhp;
 	}
+	
 	if (IsKeyPressed(KEY_R)) {
 		maxhp = 10;
 		return maxhp;
