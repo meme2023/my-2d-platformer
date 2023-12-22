@@ -90,11 +90,12 @@ void player::tick(float getframe)
 void player::draw()
 
 {
-	
-	DrawRectangleRec(hpbar = { playerpos.x,playerpos.y - 20,(float)maxhp * 6,16 }, GREEN);
+
 	Rectangle rce{ playerpos.x,playerpos.y,scale*(float)width ,scale*(float)height };
 	Rectangle scorce = { 0.f,frame*(float)height ,rightleft*(float)width,(float)height };
 	// draw rhe player
+	DrawRectangleRec(hpbar = { playerpos.x,playerpos.y - 20,(float)maxhp * 6,16 }, GREEN);
+	DrawRectangleLines(playerpos.x, playerpos.y - 19, 60, 16, BLACK);
 	DrawTexturePro(player1, scorce, rce, Vector2{ 0.f,0.f }, 0.f, WHITE);
 
 }

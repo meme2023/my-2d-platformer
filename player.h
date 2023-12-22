@@ -22,7 +22,7 @@ public:
 	player();
 	void unloadrexture();
 private:
-	float speed{ 4.f };
+	float speed{ 6.f };
 	Vector2 playerpos{};
 	Vector2 playerposlastframe{};
 	const int gravry = {900};

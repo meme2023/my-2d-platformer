@@ -1,6 +1,13 @@
-﻿  player.cpp
+﻿  my 2d platformer.cpp
+C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(95,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(95,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(96,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(96,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  player.cpp
 C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(6,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(7,46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(98,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(98,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
   2 of 22 functions ( 9.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
