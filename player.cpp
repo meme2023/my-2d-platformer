@@ -2,13 +2,10 @@
 #include"shader.h"
 
 player::player(int wid, int hight)
+	:windowwidth(wid), windowhieght(hight)
 {
 	width = static_cast<float>(player1.width);
 	height = static_cast<float>(player1.height) / maxframe;
-
-	playerpos = {
-		  (float)wid / 2.f-scale * (0.5f * width) ,
-		(float)hight / 2.f- scale * (0.5f * height) };
 
 }
 void player::undo_movement(Rectangle obj1, Rectangle ob2)
@@ -51,7 +48,6 @@ void player::tick(float getframe)
 	//update the velo
 	playerpos.y += velocity * getframe;
 	// collution true is in the ground else cout to fall
-	
 	
 		velocity += gravry * getframe;
 		isair = true;
@@ -108,6 +104,13 @@ float player::getplayerposX()
 float player::getplayerposY()
 {
 	return playerpos.y;
+}
+
+Vector2 player::getplayepos()
+{
+	return playerpos = {
+		  (float)windowwidth / 2.f - scale * (0.5f * width) ,
+		(float)windowhieght / 2.f - scale * (0.5f * height) };
 }
 
 Rectangle player::getcollustion()

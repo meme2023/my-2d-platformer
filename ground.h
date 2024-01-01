@@ -14,6 +14,7 @@ private:
 	Color col{};
 	Rectangle coll{ };
 	float pad{};
+	float scale{ 1.5f };
 	Vector2 wpos{};
 };
 

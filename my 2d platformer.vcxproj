@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="ground.cpp" />
     <ClCompile Include="my 2d platformer.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bullet.h" />
     <ClInclude Include="ground.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="resource.h" />

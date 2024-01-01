@@ -4,7 +4,7 @@
 
 ground::ground(Vector2 pos, Rectangle rec,Color cl) :  floor(rec), col(cl)
 {
-	floor = { pos.x,pos.y,floor.width,floor.height };
+	floor = { pos.x,pos.y,scale*floor.width,scale*floor.height };
 	
 }
 

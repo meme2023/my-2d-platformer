@@ -4,15 +4,16 @@
 #include <iostream>
 #pragma once
 
-class player {
+class player{
 public:
 
 
 	void undo_movement(Rectangle obj1, Rectangle ob2);
-	void tick(float getframe);
+	 void tick(float getframe);
 	void draw();
-	float getplayerposX();
-	float getplayerposY();
+	 float getplayerposX();
+	 float getplayerposY();
+	  Vector2 getplayepos();
 	Rectangle getcollustion();
 	player(int wid, int hight);
 	Camera2D getcamra();
@@ -21,11 +22,11 @@ public:
 	int getplayerhelth();
 	player();
 	void unloadrexture();
-private:
+protected:
 	float speed{ 6.f };
 	Vector2 playerpos{};
 	Vector2 playerposlastframe{};
-	const int gravry = {900};
+	const int gravry = {700};
 	int jampvel{ -400 };
 	Rectangle colliustion{};
 	bool isair = {};
@@ -51,5 +52,7 @@ private:
 	float scale{ 1.5f };
 	float rightleft{ 1.f };
 	Rectangle hpbar{};
+	int windowwidth{};
+	int windowhieght{};
 	
 };
