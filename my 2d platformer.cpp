@@ -4,6 +4,7 @@
 #include"player.h"
 #include"shader.h"
 #include <iostream>
+#include"bullet.h"
 #define MAX(a, b) ((a)>(b)? (a) : (b))
 #define MIN(a, b) ((a)<(b)? (a) : (b))
 
@@ -30,6 +31,8 @@ int WinMain()
 	const int row{ 50 };
 	const int col{ 50 };
 	player pla(gameScreenWidth/2,gameScreenHeight/2);
+	bullet fireball{ LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),
+	LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
 	// the difrent screen 
 	enum screens
 	{
@@ -79,8 +82,9 @@ int WinMain()
 			DrawText("Main Screen", 0, 0, 100, RED);
 			
 			for(int i = 0; i < size; i++){
-			
 				pla.tick(GetFrameTime());
+				fireball.setpos(pla.getplayerposX() , pla.getplayerposY());
+				fireball.tick(GetFrameTime());
 				pla.undo_movement(flo[0].getcolustion(), pla.getcollustion());
 				pla.undo_movement(flo[1].getcolustion(), pla.getcollustion());
 				if (pla.getplayerhelth() <= 0) {

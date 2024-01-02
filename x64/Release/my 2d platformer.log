@@ -1,17 +1,10 @@
 ﻿  bullet.cpp
-C:\Users\memeo\Desktop\c++\my 2d platformer\bullet.cpp(19,10): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  my 2d platformer.cpp
-C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(95,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(95,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(96,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\memeo\Desktop\c++\my 2d platformer\my 2d platformer.cpp(96,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  player.cpp
-C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(7,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(8,46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(94,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\memeo\Desktop\c++\my 2d platformer\player.cpp(94,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\bullet.cpp(5,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\bullet.cpp(6,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\bullet.cpp(7,10): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\memeo\Desktop\c++\my 2d platformer\bullet.cpp(14,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  2 of 22 functions ( 9.1%) were compiled, the rest were copied from previous compilation.
+  2 of 25 functions ( 8.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

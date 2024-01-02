@@ -150,15 +150,20 @@
     <ClInclude Include="ground.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bullet.png" />
     <Image Include="idle.png" />
     <Image Include="jumping.png" />
     <Image Include="Walking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="my 2d platformer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

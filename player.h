@@ -23,7 +23,7 @@ public:
 	player();
 	void unloadrexture();
 protected:
-	float speed{ 6.f };
+	float speed{ 7.f };
 	Vector2 playerpos{};
 	Vector2 playerposlastframe{};
 	const int gravry = {700};
@@ -54,5 +54,6 @@ protected:
 	Rectangle hpbar{};
 	int windowwidth{};
 	int windowhieght{};
+	
 	
 };

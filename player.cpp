@@ -1,6 +1,7 @@
 #include"player.h"
 #include"shader.h"
 
+
 player::player(int wid, int hight)
 	:windowwidth(wid), windowhieght(hight)
 {
@@ -81,6 +82,7 @@ void player::tick(float getframe)
 			frame = 0;
 		}
 	}
+	
 }
 
 void player::draw()
@@ -93,7 +95,7 @@ void player::draw()
 	DrawRectangleRec(hpbar = { playerpos.x,playerpos.y - 20,(float)maxhp * 6,16 }, GREEN);
 	DrawRectangleLines(playerpos.x, playerpos.y - 19, 60, 16, BLACK);
 	DrawTexturePro(player1, scorce, rce, Vector2{ 0.f,0.f }, 0.f, WHITE);
-
+	
 }
 
 float player::getplayerposX()
