@@ -5,12 +5,15 @@
 player::player(int wid, int hight)
 	:windowwidth(wid), windowhieght(hight)
 {
+	
+	
 	width = static_cast<float>(player1.width);
 	height = static_cast<float>(player1.height) / maxframe;
-
+	
 }
 void player::undo_movement(Rectangle obj1, Rectangle ob2)
 {
+	
 	if (CheckCollisionRecs(obj1, ob2)) {
 		playerpos = playerposlastframe;
 		coll = true;
@@ -27,23 +30,32 @@ void player::undo_movement(Rectangle obj1, Rectangle ob2)
 
 void player::tick(float getframe)
 {
+
+	
+	
 	Vector2 dirction{};
+	
 	//undo movement
 	playerposlastframe = playerpos;
 
 
 	//move the player
-	if (IsKeyDown(KEY_A)) {
+	if (IsKeyDown(KEY_LEFT)) {
 		dirction.x -= 1.f;
 	}
-	if (IsKeyDown(KEY_D)) { dirction.x += 1.f; }
+	if (IsKeyDown(KEY_RIGHT)) { dirction.x += 1.f; }
 
 	if (IsKeyPressed(KEY_SPACE) && isair == false) {
 		velocity += jampvel;
 		
 
-	}
+	}   
 	
+		fireball.draw();
+		bvel += 1;
+		fireball.addprj(Vector2AddValue(playerpos, bvel));
+	
+
 	//updte ainmaton 
 	running_time += getframe;
 	//update the velo
@@ -51,14 +63,15 @@ void player::tick(float getframe)
 	// collution true is in the ground else cout to fall
 	
 		velocity += gravry * getframe;
+		
 		isair = true;
-	
-	
+		  
+		 
 		if (Vector2Length(dirction) != 0.0) {
 			playerpos = Vector2Add(playerpos, Vector2Scale(Vector2Normalize(dirction), speed));
+			
 			dirction.x < 0.f ? rightleft = -1.f : rightleft = 1.f;
 			player1 = walk_player;
-
 		 if (velocity <= 0.0 && isair == true)
 		{
 			player1 = jump_player;
@@ -83,12 +96,15 @@ void player::tick(float getframe)
 		}
 	}
 	
+
+	
 }
+
 
 void player::draw()
 
 {
-
+	
 	Rectangle rce{ playerpos.x,playerpos.y,scale*(float)width ,scale*(float)height };
 	Rectangle scorce = { 0.f,frame*(float)height ,rightleft*(float)width,(float)height };
 	// draw rhe player

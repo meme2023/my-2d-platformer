@@ -30,9 +30,10 @@ int WinMain()
 	SetTextureFilter(target.texture, TEXTURE_FILTER_BILINEAR);
 	const int row{ 50 };
 	const int col{ 50 };
-	player pla(gameScreenWidth/2,gameScreenHeight/2);
-	bullet fireball{ LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),
-	LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
+	int pposx = gameScreenWidth / 2, pposy = gameScreenHeight / 2;
+	player pla(pposx,pposy);
+	player* p;
+	p = &pla;
 	// the difrent screen 
 	enum screens
 	{
@@ -53,26 +54,26 @@ int WinMain()
 	
 	int map[row][col];
 	shader post;
-
-
-
+	//bullet fireball{ Vector2{0,0},LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),
+	//LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
+	
+	
 
 	SetTargetFPS(60);
-
+	
 
 	while (WindowShouldClose() == false) {
 		// saleing the window
-
+		
 		float scale = MIN((float)GetScreenWidth() / gameScreenWidth, (float)GetScreenHeight() / gameScreenHeight); ;
 		// render the everthing here
-
+	
 		BeginTextureMode(target);
 		BeginMode2D(pla.getcamra());
 		ClearBackground(DARKGRAY);
 		switch (current)
 		{
 		case start_screen:
-
 			DrawText("Start", 150, 100, 100, RED);
 			if (IsKeyPressed(KEY_S)) {
 				current = main_screen;
@@ -80,14 +81,14 @@ int WinMain()
 			break;
 		case main_screen:
 			DrawText("Main Screen", 0, 0, 100, RED);
-			
 			for(int i = 0; i < size; i++){
-				pla.tick(GetFrameTime());
-				fireball.setpos(pla.getplayerposX() , pla.getplayerposY());
-				fireball.tick(GetFrameTime());
-				pla.undo_movement(flo[0].getcolustion(), pla.getcollustion());
-				pla.undo_movement(flo[1].getcolustion(), pla.getcollustion());
-				if (pla.getplayerhelth() <= 0) {
+				
+				p->tick(GetFrameTime());				
+				p->undo_movement(flo[0].getcolustion(),  p->getcollustion());
+				p->undo_movement(flo[1].getcolustion(), p->getcollustion());
+				//fireball.tick(GetFrameTime());
+				//fireball.draw();
+				if (p->getplayerhelth() <= 0) {
 
 					current = death;
 				}
@@ -96,8 +97,8 @@ int WinMain()
 		case loding_screen:
 			break;
 		case death:
-			DrawText("you died", pla.getplayerposX()-200, pla.getplayerposY()-100, 100, BLUE);
-			DrawText("Press R to rest", pla.getplayerposX()-200, pla.getplayerposY()+50, 50, DARKBLUE);
+			DrawText("you died", (float)p->getplayerposX()-200, (float)p->getplayerposY()-100, 100, BLUE);
+			DrawText("Press R to rest", (float)p->getplayerposX()-200, (float)p->getplayerposY()+50, 50, DARKBLUE);
 			if (IsKeyPressed(KEY_R)) {
 				current = main_screen;
 			}
@@ -118,16 +119,18 @@ int WinMain()
 
 					DrawRectangleLines(x * 32, y * 32, 32*20, 32, WHITE);
 					//draw the player
-					pla.draw();
-					pla.playerfailg();
+					
+					p->draw();
+					p->playerfailg();
 					//render the platform
 					for (int i = 0; i < size; i++) {
 						flo[i].render();
 					}
+					
 				}
 			}
 			if (current == death) {
-				pla.playerdeath();
+				p->playerdeath();
 				
 			}
 
