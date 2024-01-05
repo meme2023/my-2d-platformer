@@ -6,12 +6,15 @@ class bullet{
 public:
 	bullet( Texture2D move, Texture2D move2);
 	bullet();
-	 void tick(float getframe);
-	virtual void draw();
-	Vector2 setpos(float x, float y);
 	
+
+	Vector2 setpos(float x, float y);
+	float isactive = false;
 	void addprj(Vector2 pos);
 	Vector2 getpos();
+	void draw();
+
+	
 
 private:
 	float speed{ 7.f };

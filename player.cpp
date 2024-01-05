@@ -31,10 +31,10 @@ void player::undo_movement(Rectangle obj1, Rectangle ob2)
 void player::tick(float getframe)
 {
 
-	
+
 	
 	Vector2 dirction{};
-	
+
 	//undo movement
 	playerposlastframe = playerpos;
 
@@ -47,15 +47,27 @@ void player::tick(float getframe)
 
 	if (IsKeyPressed(KEY_SPACE) && isair == false) {
 		velocity += jampvel;
+
+
+	}
+	
+	if (IsKeyUp(KEY_A)&&!fireball.isactive) {
 		
-
-	}   
+		//bvel.x = 0;
 	
+		
+		
+			
+		
+	}
+	else {
 		fireball.draw();
-		bvel += 1;
-		fireball.addprj(Vector2AddValue(playerpos, bvel));
+		bvel.x += shoolvel * getframe;
+		
+		fireball.isactive = true;
+	}
 	
-
+	
 	//updte ainmaton 
 	running_time += getframe;
 	//update the velo
@@ -65,8 +77,13 @@ void player::tick(float getframe)
 		velocity += gravry * getframe;
 		
 		isair = true;
-		  
-		 
+		if (Vector2Length(bvel) !=0.0) {
+			fireball.addprj(Vector2Add(playerpos, (bvel)));
+			
+			
+
+		}
+		
 		if (Vector2Length(dirction) != 0.0) {
 			playerpos = Vector2Add(playerpos, Vector2Scale(Vector2Normalize(dirction), speed));
 			

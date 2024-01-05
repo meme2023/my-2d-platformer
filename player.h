@@ -39,7 +39,8 @@ private:
 	int windowwidth{};
 	int windowhieght{};
 	bullet fireball{LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
-	int bvel = 0;
+	Vector2 bvel = {};
+	int shoolvel = 100;
 public:
 
 
