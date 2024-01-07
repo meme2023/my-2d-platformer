@@ -54,17 +54,17 @@ int WinMain()
 	
 	int map[row][col];
 	shader post;
-	//bullet fireball{ Vector2{0,0},LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),
-	//LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
-	
-	
-
+	bullet fireball{ LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),
+	LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
+	bullet* f;
+	f = &fireball;
+	f->setpos(p);
 	SetTargetFPS(60);
 	
 
 	while (WindowShouldClose() == false) {
 		// saleing the window
-		
+		f->addprj({ p->getplayerposX(),p->getplayerposY() });
 		float scale = MIN((float)GetScreenWidth() / gameScreenWidth, (float)GetScreenHeight() / gameScreenHeight); ;
 		// render the everthing here
 	
@@ -82,12 +82,12 @@ int WinMain()
 		case main_screen:
 			DrawText("Main Screen", 0, 0, 100, RED);
 			for(int i = 0; i < size; i++){
-				
+				f->tick(GetFrameTime());
 				p->tick(GetFrameTime());				
 				p->undo_movement(flo[0].getcolustion(),  p->getcollustion());
 				p->undo_movement(flo[1].getcolustion(), p->getcollustion());
-				//fireball.tick(GetFrameTime());
-				//fireball.draw();
+				
+				
 				if (p->getplayerhelth() <= 0) {
 
 					current = death;
@@ -117,10 +117,17 @@ int WinMain()
 				for (int y = 0; y < col; y++) {
 					map[x][y];
 
-					DrawRectangleLines(x * 32, y * 32, 32*20, 32, WHITE);
+					DrawRectangleLines(x * 32, y * 32, 32 * 20, 32, WHITE);
 					//draw the player
-					
 					p->draw();
+
+
+
+				
+						if(f->isactive){
+							f->draw();
+							f->isactive = true;
+						}
 					p->playerfailg();
 					//render the platform
 					for (int i = 0; i < size; i++) {

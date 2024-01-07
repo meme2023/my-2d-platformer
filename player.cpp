@@ -32,9 +32,7 @@ void player::tick(float getframe)
 {
 
 
-	
 	Vector2 dirction{};
-
 	//undo movement
 	playerposlastframe = playerpos;
 
@@ -42,29 +40,15 @@ void player::tick(float getframe)
 	//move the player
 	if (IsKeyDown(KEY_LEFT)) {
 		dirction.x -= 1.f;
+		
 	}
-	if (IsKeyDown(KEY_RIGHT)) { dirction.x += 1.f; }
+	if (IsKeyDown(KEY_RIGHT)) {
+		dirction.x += 1.f; }
 
 	if (IsKeyPressed(KEY_SPACE) && isair == false) {
 		velocity += jampvel;
+		
 
-
-	}
-	
-	if (IsKeyUp(KEY_A)&&!fireball.isactive) {
-		
-		//bvel.x = 0;
-	
-		
-		
-			
-		
-	}
-	else {
-		fireball.draw();
-		bvel.x += shoolvel * getframe;
-		
-		fireball.isactive = true;
 	}
 	
 	
@@ -77,16 +61,9 @@ void player::tick(float getframe)
 		velocity += gravry * getframe;
 		
 		isair = true;
-		if (Vector2Length(bvel) !=0.0) {
-			fireball.addprj(Vector2Add(playerpos, (bvel)));
-			
-			
-
-		}
 		
 		if (Vector2Length(dirction) != 0.0) {
 			playerpos = Vector2Add(playerpos, Vector2Scale(Vector2Normalize(dirction), speed));
-			
 			dirction.x < 0.f ? rightleft = -1.f : rightleft = 1.f;
 			player1 = walk_player;
 		 if (velocity <= 0.0 && isair == true)
