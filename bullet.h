@@ -1,19 +1,18 @@
 #include "raylib.h"
 #include "raymath.h"
-
+#include"player.h"
 #pragma once
-class bullet{
+class bullet:public player{
 public:
 	bullet( Texture2D move, Texture2D move2);
 	bullet();
 	
-
-	Vector2 setpos(float x, float y);
+void setpos(player*pos) { target = pos; };
 	float isactive = false;
-	void addprj(Vector2 pos);
+	Vector2 addprj(Vector2 pos);
 	Vector2 getpos();
-	void draw();
-
+    virtual	void draw();
+    virtual	void tick(float getframe);
 	
 
 private:
@@ -26,14 +25,15 @@ private:
 	int height{};
 	float scale{ 1.5f };
 	float rightleft{ 1.f };
-	Vector2 bulletpos = { };
+	Vector2 bulletpos = {};
 	Rectangle rce={ bulletpos.x,bulletpos.y, (float)width ,(float)height };
 	Rectangle scorce = { 0.f,frame * (float)height ,rightleft * (float)width,(float)height };
 	Texture2D bllet{};
 	Texture2D blletmove{};
 	int vel{};
-	
-
+	Vector2 bvel = {};
+	int shoolvel = 1.5;
+	player* target;
 
 	
 	
