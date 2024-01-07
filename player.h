@@ -2,11 +2,11 @@
 #include"raylib.h"
 #include"raymath.h"
 #include <iostream>
-#include"bullet.h"
+
 #pragma once
 
 class player{
-private:
+protected:
 	float speed{ 7.f };
 	Vector2 playerpos{};
 	Vector2 playerposlastframe{};
@@ -38,15 +38,14 @@ private:
 	Rectangle hpbar{};
 	int windowwidth{};
 	int windowhieght{};
-	bullet fireball{LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png"),LoadTexture("C:\\Users\\memeo\\Desktop\\c++\\my 2d platformer\\bullet.png") };
-	Vector2 bvel = {};
-	int shoolvel = 100;
+	
+
 public:
 
 
 	void undo_movement(Rectangle obj1, Rectangle ob2);
 	 void tick(float getframe);
-	  void draw();
+	 void draw();
 	 float getplayerposX();
 	 float getplayerposY();
 	  Vector2 getplayepos();
@@ -58,8 +57,8 @@ public:
 	int getplayerhelth();
 	player();
 	void unloadrexture();
-
-	
+	float getrigtleft() { return rightleft; };
+	float setrightleft(float r) { return rightleft = r; }
 	
 	
 };
